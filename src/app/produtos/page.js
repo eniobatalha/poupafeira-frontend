@@ -1,0 +1,100 @@
+'use client'
+import CardCategorias from './CardCategorias';
+import { produtosMercado } from '../mock';
+import InputRegister from '@/components/InputRegister';
+import CardProdutos from './CardProdutos';
+import { useEffect, useState } from 'react';
+import { carrinhoStorage } from '../globalStorage';
+import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import Voltar from '@/components/Voltar';
+
+export default function Page() {
+
+    const { categorias, setCategorias } = carrinhoStorage()
+    const [filtroProdutos, setFiltroProdutos] = useState([])
+    const [currentCategoria, setCurrentCategoria] = useState('')
+
+    useEffect(() => {
+        setFiltroProdutos(produtosMercado)
+    }, [])
+
+
+    const filtrarProdutos = (value) => {
+
+        const filtro = produtosMercado.filter(item => {
+            return item.nome.toUpperCase().includes(value.toUpperCase())
+        })
+
+        setFiltroProdutos(filtro)
+    }
+
+    const selectCategoria = (selectedCategoria) => {
+        console.log(filtroProdutos)
+        const newCategoria = categorias.map(item => {
+            console.log(selectedCategoria === currentCategoria)
+            if (selectedCategoria === currentCategoria) {
+                setCurrentCategoria('')
+                return { ...item, selected: false }
+            }
+
+            if (item.nome === selectedCategoria) {
+                setCurrentCategoria(item.nome)
+                return { ...item, selected: true }
+            } else {
+                return { ...item, selected: false }
+            }
+        })
+
+        console.log(newCategoria)
+        setCategorias(newCategoria)
+    }
+
+    return (
+        <div className='bg-[#254969] h-[100vh] flex flex-col items-center '>
+            <Voltar />
+            <h1 className='text-white text-[22px] self-start px-3'>Categorias</h1>
+            <div className='flex items-center w-[90vw] h-[160px] overflow-auto'>
+                {
+                    categorias.map((item, index) => {
+                        return (
+                            <div key={index} onClick={() => { selectCategoria(item.nome) }}>
+                                <CardCategorias selected={item.selected} nome={item.nome} img={item.img} />
+                            </div>
+                        )
+                    })
+                }
+            </div>
+            <h1 className='text-white text-[22px]'>Busque seus itens</h1>
+            <InputRegister onChange={(e) => { filtrarProdutos(e.target.value) }} width='90vw' />
+
+
+            <div className='flex flex-col items-center overflow-auto h-[400px] mt-3'>
+
+                {
+                    filtroProdutos.map((item, index) => {
+                        if (currentCategoria === '') {
+                            return (
+                                <div key={index} className='my-2'>
+                                    <CardProdutos nome={item.nome} img={item.img} preco={item.preco} medida={item.medida} categoria={item.categoria} />
+                                </div>
+                            )
+
+                        } else if (item.categoria === currentCategoria) {
+                            console.log(item)
+                            return (
+                                <div key={index} className='my-2'>
+                                    <CardProdutos nome={item.nome} img={item.img} preco={item.preco} medida={item.medida} categoria={item.categoria} />
+                                </div>
+                            )
+                        }
+                    })
+                }
+            </div>
+
+            <Link href="/minha-lista"><div style={{ border: '1px solid #fff', borderRadius: '20px', color: '#fff' }} className='w-[300px] h-[50px] text-[20px] flex justify-center items-center my-6'><b>VER MINHA LISTA</b></div></Link>
+
+        </div>
+    );
+}
