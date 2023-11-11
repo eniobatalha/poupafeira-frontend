@@ -1,23 +1,23 @@
-import banana from './banana.png'
-import batata from './batata.png'
-import refri from './refri.png'
-import carne from './carne.png'
-import uva from './uva.png'
-import brocolis from './brocolis.png'
-import cenoura from './cenoura.png'
-import porco from './porco.png'
-import suco from './suco.png'
+import banana from '../assets/img/produtos/banana.png'
+import batata from '../assets/img/produtos/batata.png'
+import refri from '../assets/img/produtos/refri.png'
+import carne from '../assets/img/produtos/carne.png'
+import uva from '../assets/img/produtos/uva.png'
+import brocolis from '../assets/img/produtos/brocolis.png'
+import cenoura from '../assets/img/produtos/cenoura.png'
+import porco from '../assets/img/produtos/porco.png'
+import suco from '../assets/img/produtos/suco.png'
 
 export const produtosMercado = [
-    {nome: 'Banana', img: banana, preco: 21.20, medida: 'kg', categoria: 'fruta'},
-    {nome: 'Refrigerante', img: refri, preco: 30.00, medida: 'und', categoria: 'bebida'},
-    {nome: 'Batata', img: batata, preco: 10.30, medida: 'kg', categoria: 'vegetal'},
-    {nome: 'Uva', img: uva, preco: 57.31, medida: 'kg', categoria: 'fruta'},
-    {nome: 'Bife', img: carne, preco: 74.50, medida: 'kg', categoria: 'carne'},
-    {nome: 'Brocolis', img: brocolis, preco: 74.50, medida: 'kg', categoria: 'vegetal'},
-    {nome: 'Cenoura', img: cenoura, preco: 74.50, medida: 'kg', categoria: 'vegetal'},
-    {nome: 'Porco', img: porco, preco: 74.50, medida: 'kg', categoria: 'carne'},
-    {nome: 'Suco', img: suco, preco: 74.50, medida: 'kg', categoria: 'bebida'},
+    {id: 1, nome: 'Banana', img: banana, preco: 11.39, medida: 'kg', categoria: 'fruta'},
+    {id: 2, nome: 'Refrigerante', img: refri, preco: 10.00, medida: 'und', categoria: 'bebida'},
+    {id: 3, nome: 'Batata', img: batata, preco: 5.99, medida: 'kg', categoria: 'vegetal'},
+    {id: 4, nome: 'Uva', img: uva, preco: 9.49, medida: 'kg', categoria: 'fruta'},
+    {id: 5, nome: 'Bife', img: carne, preco: 44.50, medida: 'kg', categoria: 'carne'},
+    {id: 6, nome: 'Brocolis', img: brocolis, preco: 8.50, medida: 'kg', categoria: 'vegetal'},
+    {id: 7, nome: 'Cenoura', img: cenoura, preco: 7.50, medida: 'kg', categoria: 'vegetal'},
+    {id: 8, nome: 'Porco', img: porco, preco: 24.50, medida: 'kg', categoria: 'carne'},
+    {id: 9, nome: 'Suco', img: suco, preco: 8.50, medida: 'und', categoria: 'bebida'},
 ]
 
 export const mercados = [

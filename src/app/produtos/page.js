@@ -31,9 +31,7 @@ export default function Page() {
     }
 
     const selectCategoria = (selectedCategoria) => {
-        console.log(filtroProdutos)
         const newCategoria = categorias.map(item => {
-            console.log(selectedCategoria === currentCategoria)
             if (selectedCategoria === currentCategoria) {
                 setCurrentCategoria('')
                 return { ...item, selected: false }
@@ -47,7 +45,6 @@ export default function Page() {
             }
         })
 
-        console.log(newCategoria)
         setCategorias(newCategoria)
     }
 
@@ -77,12 +74,11 @@ export default function Page() {
                         if (currentCategoria === '') {
                             return (
                                 <div key={index} className='my-2'>
-                                    <CardProdutos nome={item.nome} img={item.img} preco={item.preco} medida={item.medida} categoria={item.categoria} />
+                                    <CardProdutos id={item.id} nome={item.nome} img={item.img} preco={item.preco} medida={item.medida} categoria={item.categoria} />
                                 </div>
                             )
 
                         } else if (item.categoria === currentCategoria) {
-                            console.log(item)
                             return (
                                 <div key={index} className='my-2'>
                                     <CardProdutos nome={item.nome} img={item.img} preco={item.preco} medida={item.medida} categoria={item.categoria} />

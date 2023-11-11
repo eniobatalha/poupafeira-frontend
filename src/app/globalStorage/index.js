@@ -1,8 +1,9 @@
 import { create } from 'zustand'
-import banana from '../banana.png'
-import batata from '../batata.png'
-import refri from '../refri.png'
-import carne from '../carne.png'
+// Imagens das categorias:
+import banana from '../../assets/img/produtos/banana.png'
+import batata from '../../assets/img/produtos/batata.png'
+import refri from '../../assets/img/produtos/refri.png'
+import carne from '../../assets/img/produtos/carne.png'
 
 export const carrinhoStorage = create((set) => ({
 

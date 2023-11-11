@@ -1,10 +1,10 @@
 'use client'
 
 import Image from 'next/image'
-import carrinho from '../assets/img/carrinho.png'
-import half1 from '../assets/img/half1.png'
-import half2 from '../assets/img/half2.png'
-import half from '../assets/img/half.png'
+import carrinho from '../assets/img/page-elements/carrinho.png'
+import half1 from '../assets/img/page-elements/half1.png'
+import half2 from '../assets/img/page-elements/half2.png'
+import half from '../assets/img/page-elements/half.png'
 import Button from '@/components/Button'
 import Input from '@/components/Input'
 import { useState } from 'react'
@@ -22,7 +22,6 @@ export default function Home() {
     }
 
     const closeLogin = () => {
-        console.log('sda')
         setIsLogin(false)
     }
 
