@@ -51,7 +51,7 @@ export default function Page() {
     return (
         <div className='bg-[#254969] h-[100vh] flex flex-col items-center '>
             <Voltar />
-            <h1 className='text-white text-[22px] self-start px-3'>Categorias</h1>
+            <h1 className='text-white text-[22px] self-start px-3 uppercase'>Categorias</h1>
             <div className='flex items-center w-[90vw] h-[160px] overflow-auto'>
                 {
                     categorias.map((item, index) => {
@@ -63,7 +63,7 @@ export default function Page() {
                     })
                 }
             </div>
-            <h1 className='text-white text-[22px]'>Busque seus itens</h1>
+            <h1 className='text-white text-[22px] uppercase'>Busque seus itens</h1>
             <InputRegister onChange={(e) => { filtrarProdutos(e.target.value) }} width='90vw' />
 
 

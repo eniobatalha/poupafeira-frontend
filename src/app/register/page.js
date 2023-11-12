@@ -16,7 +16,7 @@ export default function Page() {
                         <FontAwesomeIcon color='#FAA834' className='self-start' size='2x' icon={faArrowLeft} />
                     </div>
                 </Link>
-                <h1 className="text-[#254969]"><b>Complete seu Registro</b></h1>
+                <h1 className="text-[#254969] uppercase"><b>Complete seu Registro</b></h1>
 
                 <InputRegister width="300px" placeholder={'Nome Completo'} />
                 <InputRegister width="300px" placeholder={'Username'} />

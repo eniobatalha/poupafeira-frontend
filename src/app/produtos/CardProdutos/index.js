@@ -3,17 +3,31 @@ import Button from "@/components/Button";
 import Image from "next/image";
 import { useState } from "react";
 
-export default function CardProdutos({ nome, img, preco, medida, categoria }) {
+export default function CardProdutos({ id, nome, img, preco, medida, categoria }) {
 
     const { mercadorias, setMercadorias } = carrinhoStorage()
 
     const [quantidade, setQuantidade] = useState(0)
 
     const adicionar = () => {
-        if(quantidade === 0 ) return alert('Escolha uma quantidade do produto!')
-        var newMercadorias = mercadorias
+        if (quantidade === 0) return alert('Escolha uma quantidade do produto!')
         const total = preco * quantidade
-        newMercadorias.push({ nome, img, preco, total, quantidade, medida, categoria })
+
+        var hasItem = false
+
+        var newMercadorias = mercadorias.map(item => {
+            if (item.id === id) {
+                hasItem = true
+                return { id, nome, img, preco, total: preco * (quantidade + item.quantidade), quantidade: quantidade + item.quantidade, medida, categoria }
+            } else {
+                return item
+            }
+        })
+
+        if(!hasItem){
+            newMercadorias.push({ id, nome, img, preco, total, quantidade, medida, categoria })
+        }
+        
         setMercadorias(newMercadorias)
         setQuantidade(0)
     }
@@ -34,7 +48,7 @@ export default function CardProdutos({ nome, img, preco, medida, categoria }) {
             </div>
             <div className="w-[50%] flex flex-col justify-between items-center">
                 <h5>{nome}</h5>
-                <h5 className="text-[12px]">R$ {preco}/kg <b>médio</b></h5>
+                <h5 className="text-[12px]">R$ {preco} <b>em média</b></h5>
 
                 <div className="flex space-x-2">
 
