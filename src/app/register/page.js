@@ -2,10 +2,12 @@
 
 import Button from "@/components/Button";
 import InputRegister from "@/components/InputRegister";
+import InputSenha from "@/components/InputSenha";
 import Voltar from "@/components/Voltar";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
+
 
 export default function Page() {
     return (
@@ -22,7 +24,7 @@ export default function Page() {
                 <InputRegister width="300px" placeholder={'Username'} />
                 <InputRegister width="300px" placeholder={'Número Celular'} />
                 <InputRegister width="300px" placeholder={'Email'} />
-                <InputRegister width="300px" placeholder={'Senha'} />
+                <InputSenha width="300px" placeholder={'Senha'}/>
 
 
                 <h1 className="text-[#4a8992] text-[12px] w-[300px] text-center">Sua senha deve ter no mínimo 6 caracteres usando obrigatoriamente letras e números</h1>

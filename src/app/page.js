@@ -12,6 +12,8 @@ import Link from 'next/link'
 import Voltar from '@/components/Voltar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import InputRegister from '@/components/InputRegister'
+import InputSenha from '@/components/InputSenha'
 
 export default function Home() {
 
@@ -43,8 +45,8 @@ export default function Home() {
                 {
                     isLogin ?
                         <div className='inputLogin flex flex-col justify-between items-center'>
-                            <Input width='250px' placeholder={'Username ou Email'} onChange={(e) => console.log(e)} />
-                            <Input width='250px' placeholder={'Senha'} onChange={(e) => console.log(e)} />
+                            <Input width='200px' placeholder={'Username ou Email'}/>
+                            <Input width='200px' placeholder={'Senha'}/>
                             <Link href="/produtos"> <Button title='Login'>Login</Button></Link>
 
                             <a href='' className='underline p-3 text-white'>Esqueceu a senha?</a>
