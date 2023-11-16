@@ -9,11 +9,6 @@ import Button from '@/components/Button'
 import Input from '@/components/Input'
 import { useState } from 'react'
 import Link from 'next/link'
-import Voltar from '@/components/Voltar'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import InputRegister from '@/components/InputRegister'
-import InputSenha from '@/components/InputSenha'
 
 export default function Home() {
 
@@ -32,7 +27,9 @@ export default function Home() {
             {
                 isLogin &&
                 <div onClick={closeLogin} className='flex justify-start items-start w-[100vw] p-3 absolute top-0 left-0 z-10'>
-                    <FontAwesomeIcon color='#FAA834' className='self-start' size='2x' icon={faArrowLeft} />
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FAA834" class="w-9 h-9">
+                        <path fill-rule="evenodd" d="M11.03 3.97a.75.75 0 010 1.06l-6.22 6.22H21a.75.75 0 010 1.5H4.81l6.22 6.22a.75.75 0 11-1.06 1.06l-7.5-7.5a.75.75 0 010-1.06l7.5-7.5a.75.75 0 011.06 0z" clip-rule="evenodd" />
+                    </svg>
                 </div>
             }
             <div style={{ background: isLogin ? 'white' : '#254969' }} className={` h-[50vh] flex justify-center items-center  relative`}>

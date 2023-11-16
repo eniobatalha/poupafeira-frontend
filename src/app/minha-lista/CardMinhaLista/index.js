@@ -8,7 +8,6 @@ export default function CardMinhaLista({ nome, img, quantidade, medida, index })
     const { mercadorias, setMercadorias } = carrinhoStorage()
 
     const deleteMercadoria = () =>{
-        console.log('re')
         const newMercadoria = mercadorias.filter((item, i)=>{
             return i !== index
         })  

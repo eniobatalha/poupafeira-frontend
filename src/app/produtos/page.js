@@ -6,9 +6,8 @@ import CardProdutos from './CardProdutos';
 import { useEffect, useState } from 'react';
 import { carrinhoStorage } from '../globalStorage';
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import Voltar from '@/components/Voltar';
+import Logout from '@/components/Logout';
+
 
 export default function Page() {
 
@@ -48,9 +47,18 @@ export default function Page() {
         setCategorias(newCategoria)
     }
 
+    const resetCategoria = () =>{
+
+        const resetCategoria = categorias.map(item => {
+                return { ...item, selected: false }
+        })
+
+        setCategorias(resetCategoria)
+    }
+
     return (
         <div className='bg-[#254969] h-[100vh] flex flex-col items-center '>
-            <Voltar />
+            <Logout/>
             <h1 className='text-white text-[22px] self-start px-3 uppercase'>Categorias</h1>
             <div className='flex items-center w-[90vw] h-[160px] overflow-auto'>
                 {
@@ -81,7 +89,7 @@ export default function Page() {
                         } else if (item.categoria === currentCategoria) {
                             return (
                                 <div key={index} className='my-2'>
-                                    <CardProdutos nome={item.nome} img={item.img} preco={item.preco} medida={item.medida} categoria={item.categoria} />
+                                    <CardProdutos id={item.id} nome={item.nome} img={item.img} preco={item.preco} medida={item.medida} categoria={item.categoria} />
                                 </div>
                             )
                         }
@@ -89,7 +97,7 @@ export default function Page() {
                 }
             </div>
 
-            <Link href="/minha-lista"><div style={{ border: '1px solid #fff', borderRadius: '20px', color: '#fff' }} className='w-[300px] h-[50px] text-[20px] flex justify-center items-center my-6'><b>VER MINHA LISTA</b></div></Link>
+            <Link href="/minha-lista"><div onClick={resetCategoria} style={{ border: '1px solid #fff', borderRadius: '20px', color: '#fff' }} className='w-[80vw] max-w-[300px]  h-[50px] text-[15px] flex justify-center items-center my-6'><b>VER MINHA LISTA</b></div></Link>
 
         </div>
     );
