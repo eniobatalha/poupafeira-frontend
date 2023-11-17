@@ -11,7 +11,6 @@ export default function CardMinhaLista({ nome, img, quantidade, medida, index })
         const newMercadoria = mercadorias.filter((item, i)=>{
             return i !== index
         })  
-        console.log(newMercadoria)
         setMercadorias(newMercadoria)
     }
 

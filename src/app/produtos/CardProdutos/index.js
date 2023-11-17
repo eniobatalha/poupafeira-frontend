@@ -35,13 +35,14 @@ export default function CardProdutos({ id, nome, img, preco, medida, categoria }
     const acrescentar = () => {
         setQuantidade(quantidade + 1)
     }
+
     const decrescer = () => {
         if (quantidade === 0) return
         setQuantidade(quantidade - 1)
     }
 
     return (
-        <div className="flex rounded-lg w-[90vw] h-[110px] shadow-xl bg-white">
+        <div className="flex rounded-lg w-[89vw] h-[120px] shadow-x1 mx-4 py-2 bg-white">
             <div className="w-[50%] flex justify-center items-center">
                 <Image width={80} src={img} alt='half' />
 

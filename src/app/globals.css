@@ -8,7 +8,5 @@ body {
 }
 
 .inputLogin input::placeholder {
-  color: #2898a0;
   text-align: center;
-  font-size: 12px;
 }

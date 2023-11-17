@@ -19,14 +19,14 @@ export default function Page() {
                 </Link>
                 <h1 className="text-[#254969] uppercase"><b>Complete seu Registro</b></h1>
 
-                <InputRegister width="300px" placeholder={'Nome Completo'} />
-                <InputRegister width="300px" placeholder={'Username'} />
-                <InputRegister width="300px" placeholder={'Número Celular'} />
-                <InputRegister width="300px" placeholder={'Email'} />
-                <InputSenha width="300px" placeholder={'Senha'}/>
+                <InputRegister width="275px" placeholder={'Nome Completo'} />
+                <InputRegister width="275px" placeholder={'Username'} />
+                <InputRegister width="275px" placeholder={'Número Celular'} />
+                <InputRegister width="275px" placeholder={'Email'} />
+                <InputSenha width="275px" placeholder={'Senha'}/>
 
 
-                <h1 className="text-[#4a8992] text-[12px] w-[300px] text-center">Sua senha deve ter no mínimo 6 caracteres usando obrigatoriamente letras e números</h1>
+                <h1 className="text-[#4a8992] text-[12px] w-[275px] text-center">Sua senha deve ter no mínimo 6 caracteres usando obrigatoriamente letras e números</h1>
 
                 <div className="flex justify-center items-center space-x-3">
                     <input type="checkbox" id="termos" name="termos" className="w-[20px] h-[20px]" />
