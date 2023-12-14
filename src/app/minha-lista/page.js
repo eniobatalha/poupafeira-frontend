@@ -1,11 +1,12 @@
 'use client'
 
-import InputRegister from "@/components/InputRegister";
+import InputRegister from "@/components/InputRegister/InputName";
 import { useEffect, useState } from "react";
 import { carrinhoStorage } from "../globalStorage";
 import Link from "next/link";
 import CardMinhaLista from "./CardMinhaLista";
 import Voltar from "@/components/Voltar";
+import InputFilter from "@/components/InputFiltro";
 
 export default function Page() {
 
@@ -38,7 +39,7 @@ export default function Page() {
                 <h1 className="text-white text-[20px] self-start">MINHA LISTA</h1>
             </div>
 
-            <InputRegister onChange={(e) => { filtrarMinhaLista(e.target.value) }} width='90vw' />
+            <InputFilter onChange={(e) => { filtrarMinhaLista(e.target.value) }} width='90vw' />
 
             <div className='flex flex-col items-center overflow-auto h-[400px] mt-3'>
 

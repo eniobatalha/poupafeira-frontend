@@ -1,8 +1,10 @@
+
 import { Inter } from 'next/font/google'
 import './globals.css'
 import foot from '../assets/img/page-elements/foot.png'
 import topo from '../assets/img/page-elements/topo.png'
 import Image from 'next/image'
+import { AuthProvider } from '@/context/authContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,9 +17,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
       <body className='relative'>
+        <AuthProvider>
        {children}
-        <Image src={foot} width={50} className='absolute bottom-0 left-0' />
-        <Image src={topo} width={90} className='absolute top-0 right-0 z-0' />
+        <Image src={foot} width={50} className='absolute bottom-0 left-0' alt=''/>
+        <Image src={topo} width={90} className='absolute top-0 right-0 z-0' alt=''/>
+        </AuthProvider>
       </body>
     </html>
   )

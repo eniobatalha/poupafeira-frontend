@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function InputSenha({ onChange, placeholder, width = '200px' }) {
+export default function InputSenha({ register, placeholder, width = '200px', errors, onChange}) {
   const [inputType, setInputType] = useState('password');
 
   const togglePasswordVisibility = () => {
@@ -10,6 +10,17 @@ export default function InputSenha({ onChange, placeholder, width = '200px' }) {
   return (
     <div style={{ position: 'relative' }}>
       <input
+        {...register('senha', {
+          required: 'Campo obrigatório',
+          minLength: {
+            value: 6,
+            message: 'A senha deve ter no mínimo 6 caracteres',
+          },
+          pattern: {
+            value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/,
+            message: 'A senha deve ter no mínimo 6 caracteres usando obrigatoriamente letras e números',
+          },
+        })}
         onChange={onChange}
         type={inputType}
         placeholder={placeholder}
@@ -30,6 +41,11 @@ export default function InputSenha({ onChange, placeholder, width = '200px' }) {
         onClick={togglePasswordVisibility}
       >
       </button>
+      {errors.senha && (
+        <p style={{ color: 'red', fontSize: '12px', marginTop: '5px' }}>
+          {errors.senha.message}
+        </p>
+      )}
     </div>
   );
 }

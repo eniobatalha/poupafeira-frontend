@@ -1,13 +1,12 @@
 'use client'
 import CardCategorias from './CardCategorias';
 import { produtosMercado } from '../mock';
-import InputRegister from '@/components/InputRegister';
 import CardProdutos from './CardProdutos';
 import { useEffect, useState } from 'react';
 import { carrinhoStorage } from '../globalStorage';
 import Link from 'next/link';
 import Logout from '@/components/Logout';
-
+import InputFilter from '@/components/InputFiltro';
 
 export default function Page() {
 
@@ -18,6 +17,7 @@ export default function Page() {
     useEffect(() => {
         setFiltroProdutos(produtosMercado)
     }, [])
+
 
 
     const filtrarProdutos = (value) => {
@@ -72,7 +72,7 @@ export default function Page() {
                 }
             </div>
             <h1 className='text-white text-[22px] uppercase'>Busque seus itens</h1>
-            <InputRegister onChange={(e) => { filtrarProdutos(e.target.value) }} width='90vw' />
+            <InputFilter onChange={(e) => { filtrarProdutos(e.target.value) }} width='90vw' />
 
 
             <div className='flex flex-col items-center overflow-auto h-[400px] mt-3'>
@@ -102,3 +102,4 @@ export default function Page() {
         </div>
     );
 }
+

@@ -12,9 +12,12 @@
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "axios": "^1.6.2",
     "next": "14.0.2",
+    "nookies": "^2.5.2",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.49.0",
     "zustand": "^4.4.6"
   },
   "devDependencies": {
