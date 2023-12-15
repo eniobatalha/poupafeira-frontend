@@ -1,12 +1,12 @@
-import banana from '../assets/img/produtos/banana.png'
-import batata from '../assets/img/produtos/batata.png'
-import refri from '../assets/img/produtos/refri.png'
-import carne from '../assets/img/produtos/carne.png'
-import uva from '../assets/img/produtos/uva.png'
-import brocolis from '../assets/img/produtos/brocolis.png'
-import cenoura from '../assets/img/produtos/cenoura.png'
-import porco from '../assets/img/produtos/porco.png'
-import suco from '../assets/img/produtos/suco.png'
+import banana from '../assets/img/produtos/frutas/banana.png'
+import batata from '../assets/img/produtos/vegetais/batata.png'
+import refri from '../assets/img/produtos/bebidas/refri.png'
+import carne from '../assets/img/produtos/carne/carne.png'
+import uva from '../assets/img/produtos/frutas/uva.png'
+import brocolis from '../assets/img/produtos/vegetais/brocolis.png'
+import cenoura from '../assets/img/produtos/vegetais/cenoura.png'
+import porco from '../assets/img/produtos/carne/porco.png'
+import suco from '../assets/img/produtos/bebidas/suco.png'
 
 export const produtosMercado = [
     {id: 1, nome: 'Banana', img: banana, preco: 11.39, medida: 'kg', categoria: 'fruta'},

@@ -15,7 +15,7 @@ export default function Page() {
 
     useEffect(() => {
         setFiltroLista(mercadorias)
-    }, [])
+    }, [mercadorias])
 
     useEffect(() => {
         setFiltroLista(mercadorias)
