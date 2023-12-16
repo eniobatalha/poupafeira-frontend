@@ -8,7 +8,7 @@ export default function InputLoginSenha({ register, placeholder, width = '200px'
   };
 
   return (
-    <div style={{ position: 'relative' }}>
+    <>
       <input
         {...register('senha', {
           required: 'Insira sua senha para logar',
@@ -41,10 +41,10 @@ export default function InputLoginSenha({ register, placeholder, width = '200px'
       >
       </button>
       {errors.senha && (
-        <p style={{ color: 'red', fontSize: '12px', marginTop: '5px' }}>
+        <p style={{ color: 'white', fontSize: '12px', marginTop: '5px' }}>
           {errors.senha.message}
         </p>
       )}
-    </div>
+    </>
   );
 }

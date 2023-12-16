@@ -7,6 +7,9 @@ import brocolis from '../assets/img/produtos/vegetais/brocolis.png'
 import cenoura from '../assets/img/produtos/vegetais/cenoura.png'
 import porco from '../assets/img/produtos/carne/porco.png'
 import suco from '../assets/img/produtos/bebidas/suco.png'
+import leao from '../assets/img/mercados/leao.png'
+import supernordeste from '../assets/img/mercados/supernordeste.png'
+import atacadao from '../assets/img/mercados/atacadao.png'
 
 export const produtosMercado = [
     {id: 1, nome: 'Banana', img: banana, preco: 11.39, medida: 'kg', categoria: 'fruta'},
@@ -21,7 +24,7 @@ export const produtosMercado = [
 ]
 
 export const mercados = [
-    {nome: 'Atacadão Jaboatão', logradouro: 'PE-007, Vargem Fria, Jaboatão dos Guararapes, PE', info: 'Aberto agora - Fecha às 18h hoje.', valor: '227,50'},
-    {nome: 'Supermercado Leão', logradouro: 'PE-007, Vargem Fria, Jaboatão dos Guararapes, PE', info: 'Aberto agora - Fecha às 18h hoje.', valor: '240,17'},
-    {nome: 'SuperNordeste Mercado', logradouro: 'PE-007, Vargem Fria, Jaboatão dos Guararapes, PE', info: 'Aberto agora - Fecha às 18h hoje.', valor: '291,33'},
+    {nome: 'Atacadão Jaboatão', logradouro: 'PE-007, Vargem Fria, Jaboatão dos Guararapes, PE', info: 'Aberto agora - Fecha às 18h hoje.', valor: '227,50', coord: {lat: 59.955413, lng: 30.337844}, img: atacadao},
+    {nome: 'Supermercado Leão', logradouro: 'PE-007, Vargem Fria, Jaboatão dos Guararapes, PE', info: 'Aberto agora - Fecha às 18h hoje.', valor: '240,17', coord: {lat: 59.955413, lng: 30.337844}, img: leao},
+    {nome: 'SuperNordeste Mercado', logradouro: 'PE-007, Vargem Fria, Jaboatão dos Guararapes, PE', info: 'Aberto agora - Fecha às 18h hoje.', valor: '291,33', coord: {lat: 59.955413, lng: 30.337844}, img: supernordeste},
 ]

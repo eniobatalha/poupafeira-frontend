@@ -3,9 +3,11 @@
 import Link from "next/link";
 import CardMercados from "./CardMercados";
 import { mercados } from "../mock";
+import { carrinhoStorage } from "../globalStorage";
 
 export default function Page() {
 
+    const { setSelectedMercados } = carrinhoStorage()
 
     return (
         <div className="bg-[#254969] h-[100vh] flex flex-col justify-center items-center relative">
@@ -15,11 +17,13 @@ export default function Page() {
             <div className='flex flex-col items-center overflow-auto h-[400px] mt-3'>
 
                 {
-                    mercados.map((item,index) => {
+                    mercados.map((item, index) => {
                         return (
-                            <div key={index} className='my-2'>
-                                <CardMercados nome={item.nome} logradouro={item.logradouro} info={item.info} valor={item.valor} />
-                            </div>
+                            <Link href="/infoMercado" onClick={()=>{setSelectedMercados(item)}}>
+                                <div key={index} className='my-2'>
+                                    <CardMercados nome={item.nome} logradouro={item.logradouro} info={item.info} valor={item.valor} />
+                                </div>
+                            </Link>
                         )
                     })
                 }

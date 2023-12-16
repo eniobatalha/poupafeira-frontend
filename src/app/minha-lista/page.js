@@ -7,10 +7,12 @@ import Link from "next/link";
 import CardMinhaLista from "./CardMinhaLista";
 import Voltar from "@/components/Voltar";
 import InputFilter from "@/components/InputFiltro";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function Page() {
 
-    const { mercadorias } = carrinhoStorage()
+    const { mercadorias, setMercadorias } = carrinhoStorage()
     const [filtroLista, setFiltroLista] = useState([])
 
     useEffect(() => {
@@ -31,12 +33,17 @@ export default function Page() {
         setFiltroLista(filtro)
     }
 
+    const handleLimparCarrinho = () => {
+        setMercadorias([])
+    }
+
     return (
         <div className="bg-[#254969] h-[100vh] flex flex-col items-center relative">
 
             <Voltar rota="produtos" />
-            <div className="w-[90vw] mb-3">
+            <div className="flex justify-between w-[90vw] mb-3">
                 <h1 className="text-white text-[20px] self-start">MINHA LISTA</h1>
+
             </div>
 
             <InputFilter onChange={(e) => { filtrarMinhaLista(e.target.value) }} width='90vw' />
@@ -54,7 +61,12 @@ export default function Page() {
                 }
             </div>
 
-            <Link href={mercadorias.length === 0 ? "/produtos" : "/poupar"}><div onClick={() => { mercadorias.length === 0 && alert('Adicione itens ao carrinho!') }} style={{ border: '1px solid #fff', borderRadius: '20px', color: '#fff' }} className='w-[300px] h-[50px] text-[20px] flex justify-center items-center my-6'><b>POUPAR AGORA!</b></div></Link>
+            <div onClick={handleLimparCarrinho} className="w-[300px] h-[50px] text-[20px] flex justify-center items-center py-6 limpar-carrinho cursor-pointer mb-3">
+                <FontAwesomeIcon className="text-yellow-500" icon={faTrash} />
+                <h1 className="ml-3 text-white font-bold">LIMPAR CARRINHO</h1>
+            </div>
+
+            <Link href={mercadorias.length === 0 ? "/produtos" : "/poupar"}><div onClick={() => { mercadorias.length === 0 && alert('Adicione itens ao carrinho!') }} style={{ border: '1px solid #fff', borderRadius: '20px', color: '#fff' }} className='w-[300px] h-[50px] text-[20px] flex justify-center items-center py-6'><b>POUPAR AGORA!</b></div></Link>
         </div>
     );
 }

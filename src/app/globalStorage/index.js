@@ -8,6 +8,7 @@ import carne from '../../assets/img/produtos/carne/carne.png'
 export const carrinhoStorage = create((set) => ({
 
     mercadorias: [],
+    selectedMercado: [],
     categorias: [
         {nome: 'vegetal', img: batata, selected: false},
         {nome: 'carne', img: carne, selected: false},
@@ -15,6 +16,7 @@ export const carrinhoStorage = create((set) => ({
         {nome: 'bebida', img: refri, selected: false},
      
     ],
+    setSelectedMercados: (payload) => set((state) => ({ selectedMercado: state.selectedMercado = payload })), 
     setMercadorias: (payload) => set((state) => ({ mercadorias: state.mercadorias = payload })), 
     setCategorias: (payload) => set((state) => ({ categorias: state.categorias = payload })), 
 }))

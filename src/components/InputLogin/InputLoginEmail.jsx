@@ -16,7 +16,7 @@ export default function InputLoginEmail({register, onChange, placeholder, width 
     className={`border-current rounded-full w-[${width}] h-[40px] bg-white p-3 my-1.5`}
      />
      {errors.email && (
-      <p style={{ color: 'red', fontSize: '12px', marginTop: '5px' }}>
+      <p style={{ color: 'white', fontSize: '12px', marginTop: '5px' }}>
         {errors.email.message}
       </p>
     )}

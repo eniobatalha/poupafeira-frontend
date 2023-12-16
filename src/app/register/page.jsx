@@ -14,10 +14,10 @@ export default function Page() {
     const [termosAceitos, setTermosAceitos] = useState(false);
     const { register, handleSubmit, formState: { errors },watch } = useForm();
 
-    const onSubmit = async (data) => {
+    const onSubmit = async (data) => { 
         try {
             if (!termosAceitos) {
-                console.log('Por favor, concorde com os Termos de Uso para continuar.');
+                alert('Por favor, concorde com os Termos de Uso para continuar.');
                 return;
               }
 
@@ -45,11 +45,13 @@ export default function Page() {
                 <h1 className="text-[#254969] uppercase"><b>Complete seu Registro</b></h1>
 
                 <form onSubmit={handleSubmit(onSubmit)} >
+                <div className="flex flex-col justify-center space-y-2">
 
-                <InputNome width="275px" placeholder={'Nome Completo'} register={ register }/>
-                <InputEmail width="275px" placeholder={'Email'} register={ register } errors={ errors }/>
-                <InputSenha width="275px" placeholder={'Senha'} register={ register } errors={ errors } />
-                <ConfirmacaoSenha width="275px" placeholder={'Repita a Senha'} register={ register } errors={ errors } watch={watch}/>
+                <InputNome width="325px" placeholder={'Nome Completo'} register={ register }/>
+                <InputEmail width="325px" placeholder={'Email'} register={ register } errors={ errors }/>
+                <InputSenha width="325px" placeholder={'Senha'} register={ register } errors={ errors } />
+                <ConfirmacaoSenha width="325px" placeholder={'Repita a Senha'} register={ register } errors={ errors } watch={watch}/>
+                </div>
 
 
                 <h1 className="text-[#4a8992] text-[12px] w-[275px] text-center">Sua senha deve ter no mínimo 6 caracteres usando obrigatoriamente letras e números</h1>
