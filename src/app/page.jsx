@@ -29,6 +29,8 @@ export default function Home() {
        await AuthLogin(data)
       };
 
+      
+
     return (
         <div className='h-[100vh]'>
             {
@@ -40,9 +42,9 @@ export default function Home() {
                 </div>
             }
             <div style={{ background: isLogin ? 'white' : '#254969' }} className={` h-[50vh] flex justify-center items-center  relative`}>
-                <Image src={carrinho} width={300} alt='logo' priority/>
-                <Image className='absolute bottom-0 left-0' src={half1} width={40} alt='half' />
-                <Image className='absolute bottom-0 right-0 rotate-[270deg]' src={half1} width={40} alt='half' />
+                <Image priority src={carrinho} width={300} alt='logo' />
+                <Image loading='lazy' className='absolute bottom-0 left-0' src={half1} width={40} alt='half' />
+                <Image loading='lazy' className='absolute bottom-0 right-0 rotate-[270deg]' src={half1} width={40} alt='half' />
             </div>
 
             <div style={{ background: isLogin ? '#254969' : 'white' }} className={` h-[50vh] flex flex-col justify-center items-center p-10 relative`}>
@@ -68,13 +70,13 @@ export default function Home() {
                             </div>
                         </>
                 }
-                <Image className='absolute top-0 left-0' src={half2} width={40} alt='half' />
-                <Image className='absolute top-0 right-0 rotate-90' src={half2} width={40} alt='half' />
+                <Image loading='lazy' className='absolute top-0 left-0' src={half2} width={40} alt='half' />
+                <Image loading='lazy' className='absolute top-0 right-0 rotate-90' src={half2} width={40} alt='half' />
             </div>
 
 
             <div className='absolute top-0 left-0 w-full flex justify-center items-center'>
-                <Image src={half} width={80} alt='half' />
+                <Image loading='lazy' src={half} width={80} alt='half' />
             </div>
         </div>
     )

@@ -1,4 +1,5 @@
 
+import { CartProvider } from '@/context/cartContext';
 import { Inter } from 'next/font/google'
 import './globals.css'
 import foot from '../assets/img/page-elements/foot.png'
@@ -18,9 +19,11 @@ export default function RootLayout({ children }) {
     <html lang="pt-BR">
       <body className='relative'>
         <AuthProvider>
+        <CartProvider>
        {children}
-        <Image src={foot} width={50} className='absolute bottom-0 left-0' alt=''/>
-        <Image src={topo} width={90} className='absolute top-0 right-0 z-0' alt=''/>
+        <Image priority src={foot} width={50} className='absolute bottom-0 left-0' alt=''/>
+        <Image priority src={topo} width={90} className='absolute top-0 right-0 z-0' alt=''/>
+        </CartProvider>
         </AuthProvider>
       </body>
     </html>

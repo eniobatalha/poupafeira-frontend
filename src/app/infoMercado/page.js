@@ -1,7 +1,6 @@
 'use client'
 
 import Link from "next/link";
-import { carrinhoStorage } from "../globalStorage";
 import Image from "next/image";
 import GoogleMapReact, { fitBounds } from 'google-map-react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

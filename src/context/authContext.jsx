@@ -2,7 +2,6 @@
 
 import { createContext, useEffect, useState } from 'react';
 import { setCookie,parseCookies  } from 'nookies';
-import axios from 'axios';
 import { api } from '@/service/api';
 
 export const AuthContext = createContext({})
