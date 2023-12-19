@@ -1,7 +1,7 @@
 'use client'
 
 import { useContext, useState } from 'react';
-import CardMinhaLista from './CardMinhaLista';
+import CardMinhaLista from '../../components/CardMinhaLista';
 import Voltar from '@/components/Voltar';
 import InputFilter from '@/components/InputFiltro';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -22,6 +22,7 @@ export default function Page() {
   const itensFiltrados = cart.filter((item) =>
     item.nome.toLowerCase().includes(filtroTexto.toLowerCase())
   );
+  
 
   return (
     <div className="bg-[#254969] h-[100vh] flex flex-col items-center relative">
@@ -44,6 +45,7 @@ export default function Page() {
               medida={item.medida}
             />
           </div>
+
         ))}
       </div>
 
@@ -52,7 +54,6 @@ export default function Page() {
         <h1 className="ml-3 text-white font-bold">LIMPAR CARRINHO</h1>
       </div>
 
-      {/* Aqui você pode condicionar o redirecionamento com base no comprimento do carrinho */}
       <Link href={cart.length === 0 ? "/produtos" : "/poupar"}>
         <div onClick={() => { cart.length === 0 && alert('Adicione itens ao carrinho!') }} style={{ border: '1px solid #fff', borderRadius: '20px', color: '#fff' }} className='w-[300px] h-[50px] text-[20px] flex justify-center items-center py-6'><b>POUPAR AGORA!</b></div>
       </Link>

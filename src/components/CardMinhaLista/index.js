@@ -23,9 +23,10 @@ export default function CardMinhaLista({ id, nome, img, quantidade, medida }) {
                 <h5>{nome}</h5>
                 <h5 className="text-[20px]">{quantidade}{medida}</h5>
             </div>
-            <div /*onClick={handleRemoveFromCart(id)}*/ className="w-[20%] flex flex-col justify-center items-center">
-                <FontAwesomeIcon icon={faTrash} size="2x" color="#FAA834" />
+            <div onClick={() => handleRemoveFromCart(id)} className="w-[20%] flex flex-col justify-center items-center">
+            <FontAwesomeIcon icon={faTrash} size="2x" color="#FAA834" />
             </div>
+
         </div>
     );
 }

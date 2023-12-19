@@ -1,6 +1,6 @@
 'use client'
-import CardCategorias from './CardCategorias';
-import CardProdutos from './CardProdutos';
+import CardCategorias from '../../components/CardCategorias';
+import CardProdutos from '../../components/CardProdutos';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Logout from '@/components/Logout';

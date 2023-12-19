@@ -1,7 +1,7 @@
 'use client'
 
 import Link from "next/link";
-import CardMercados from "./CardMercados";
+import CardMercados from "../../components/CardMercados";
 import { useEffect, useContext, useState } from "react";
 import { CartContext } from '@/context/cartContext';
 import { api } from "@/service/api";
@@ -39,10 +39,10 @@ export default function Page() {
             <div className='flex flex-col items-center overflow-auto h-[400px] mt-3'>
                 {
                     mercados.map((item) => (
-                        <Link href="/infoMercado" onClick={() => { setSelectedMercados(item) }} key={item.id_mercado}>
-                            <div className='my-2'>
-                                <CardMercados nome={item.nome_mercado}  />
-                            </div>
+                        <Link href={{ pathname: '/infoMercado', query: { mercado: JSON.stringify(item) } }} key={item.id_mercado}>
+                        <div className='my-2'>
+                            <CardMercados nome={item.nome_mercado} info={item.info} img={item.img_mercado} endereco={item.endereco} />
+                        </div>
                         </Link>
                     ))
                 }
