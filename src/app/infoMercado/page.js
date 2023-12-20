@@ -82,7 +82,7 @@ export default function Page() {
                 />
             )}
 
-            <div style={{ height: '30vh', width: '85vw' }}>
+            <div style={{ height: '30vh', width: '88vw' }}>
                 {latitude && longitude && (
                     <GoogleMapReact
                         bootstrapURLKeys={{ key: "AIzaSyAmgxIBNiIvAnb-HFihEtfqzYG_4c-fMvA" }}
@@ -111,7 +111,7 @@ export default function Page() {
                 {
                     listaProdutos.map(item => {
                         return (
-                            <div key={item.id} className="flex justify-between w-[85vw] items-center max-w-[300px] m-2" style={{ margin: '10px' }}>
+                            <div key={item.id} className="flex justify-between w-[88vw] items-center max-w-[300px] m-2" style={{ margin: '10px' }}>
                                 <Checkbox
                                     checked={checkboxes[item.id] || false}
                                     onChange={() => handleCheckboxChange(item.id)}
