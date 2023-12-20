@@ -13,9 +13,9 @@ import { CartContext } from "@/context/cartContext";
 
 export default function Page() {
     const mercadoParams = useSearchParams();
-    const { cart,clearCart } = useContext(CartContext)
-    const [ mercado , setMercado ] = useState({})
-    const [ listaProdutos, setListaProdutos] = useState([])
+    const { cart, clearCart } = useContext(CartContext)
+    const [mercado, setMercado] = useState({})
+    const [listaProdutos, setListaProdutos] = useState([])
     const [valorTotalCarrinho, setValorTotalCarrinho] = useState(0);
     const [checkboxes, setCheckboxes] = useState({});
 
@@ -30,7 +30,7 @@ export default function Page() {
 
             return {
                 id: cartItem.id,
-                nome_produto: cartItem.nome, // Corrigindo a chave para 'nome_produto'
+                nome_produto: cartItem.nome,
                 img: cartItem.img,
                 medida: cartItem.medida,
                 qtd: cartItem.qtd,
@@ -45,8 +45,8 @@ export default function Page() {
             initialCheckboxes[item.id] = true;
         });
         setCheckboxes(initialCheckboxes);
-        
-    }, [ mercadoParams ]);
+
+    }, [mercadoParams]);
 
     useEffect(() => {
         const total = listaProdutos.reduce((acc, item) => {
@@ -66,47 +66,68 @@ export default function Page() {
         }));
     };
 
-    const {  nome_mercado, localizacao, img_mercado, info, tele, endereco } = mercado;
+    const { nome_mercado, localizacao, img_mercado, info, tele, endereco } = mercado;
+    const [latitude, longitude] = localizacao && localizacao.includes(',') ? localizacao.split(',').map(coord => parseFloat(coord.trim())) : [0, 0];
 
     return (
         <div className="bg-[#254969] h-[100vh] flex flex-col justify-center items-center relative">
-           {img_mercado && (
-            <Image
-                src={img_mercado}
-                style={{ height: 'auto', width: 'auto' }}
-                width={100}
-                height={100}
-                alt=""
-                className="rounded-full"
-            />
+            {img_mercado && (
+                <Image
+                    src={img_mercado}
+                    style={{ height: 'auto', width: 'auto' }}
+                    width={100}
+                    height={100}
+                    alt=""
+                    className="rounded-full"
+                />
             )}
 
-            <h1 className="text-white mb-2"><b>{nome_mercado}</b></h1>
-            <h1 className="text-white mb-2"><b>{info}</b></h1>
-            <h1 className="text-white mb-2"><b>{tele}</b></h1>
-            <h1 className="text-white mb-2"><b>{endereco}</b></h1>
+            <div style={{ height: '50vh', width: '85vw' }}>
+                {latitude && longitude && (
+                    <GoogleMapReact
+                        bootstrapURLKeys={{ key: "AIzaSyAmgxIBNiIvAnb-HFihEtfqzYG_4c-fMvA" }}
+                        defaultCenter={{
+                            lat: latitude,
+                            lng: longitude
+                        }}
+                        defaultZoom={11}
+                    >
+                        <div className="flex justify-center items-center w-[50px] h-[50px] rounded-full bg-[#FAA834]">
+                            {latitude && longitude && (
+                                <FontAwesomeIcon
+                                    size="2x"
+                                    color="black"
+                                    icon={faBasketShopping}
+                                    lat={latitude}
+                                    lng={longitude}
+                                />
+                            )}
+                        </div>
+                    </GoogleMapReact>
+                )}
+            </div>
 
-            <div className='flex flex-col items-center overflow-auto h-[50vh] mt-3 bg-white w-[80vw] rounded-md mb-3'>
+            <div className='flex flex-col items-center overflow-auto h-[50vh] mt-3 bg-white w-[85vw] rounded-md mb-3'>
                 {
                     listaProdutos.map(item => {
                         return (
-                            <div key={item.id} className="flex justify-between w-[85vw] items-center max-w-[300px] m-2">
+                            <div key={item.id} className="flex justify-between w-[85vw] items-center max-w-[300px] m-2" style={{ margin: '10px' }}>
                                 <Checkbox
                                     checked={checkboxes[item.id] || false}
                                     onChange={() => handleCheckboxChange(item.id)}
                                 />
-                                <Image style={{ height: 'auto', width: 'auto' }} width={50} height={50} src={item.img} alt="half" />
-                                <h1>{item.nome_produto}</h1>
-                                <div>
-                                    <h2>R$ Unit</h2>
+                                <Image style={{ height: 'auto', width: 'auto', marginLeft: '5px', marginRight: '5px' }} width={25} height={25} src={item.img} alt="half" />
+                                <h1 style={{ marginLeft: '5px', marginRight: '5px' }}>{item.nome_produto}</h1>
+                                <div style={{ marginLeft: '5px', marginRight: '5px' }}>
+                                    <h2 className="font-bold">R$ U</h2>
                                     <h1>R${item.preco}</h1>
                                 </div>
-                                <div>
-                                    <h2>Qtd</h2>
+                                <div style={{ marginLeft: '5px', marginRight: '5px' }}>
+                                    <h2 className="font-bold">QTD</h2>
                                     <h1>{item.qtd}{item.medida}</h1>
                                 </div>
-                                <div>
-                                    <h2>Total</h2>
+                                <div style={{ marginLeft: '10px', marginRight: '10px' }}>
+                                    <h2 className="font-bold">TOTAL</h2>
                                     <h1>R${item.preco * item.qtd}</h1>
                                 </div>
                             </div>

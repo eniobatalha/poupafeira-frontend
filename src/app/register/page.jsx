@@ -23,6 +23,8 @@ export default function Page() {
 
             const response = await api.post('/auth/register', data);
             console.log('Resposta do servidor:', response.data.message);
+            window.location.href = "/";
+            alert('Cadastro realizado com sucesso!');
           } catch (error) {
             console.error('Erro ao fazer o POST:', error);
           }
