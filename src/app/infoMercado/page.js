@@ -82,7 +82,7 @@ export default function Page() {
                 />
             )}
 
-            <div style={{ height: '50vh', width: '85vw' }}>
+            <div style={{ height: '30vh', width: '85vw' }}>
                 {latitude && longitude && (
                     <GoogleMapReact
                         bootstrapURLKeys={{ key: "AIzaSyAmgxIBNiIvAnb-HFihEtfqzYG_4c-fMvA" }}
