@@ -4,7 +4,7 @@ import { parseCookies } from "nookies";
 const { 'auth.token':token } = parseCookies();
 
 export const api = axios.create({
-    baseURL: 'http://localhost:3001'
+    baseURL: 'https://apipoupafeira.azurewebsites.net/'
 })
 
 if (token) {
