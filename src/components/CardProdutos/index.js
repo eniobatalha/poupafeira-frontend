@@ -26,28 +26,39 @@ export default function CardProdutos({ id, nome, img, preco, medida }) {
   };
 
   return (
-    <div className="flex rounded-lg w-[89vw] h-[120px] shadow-x1 mx-4 py-2 bg-white">
+    <div className="flex rounded-lg w-[89vw] h-[165px] shadow-x1 mx-4 py-2 bg-white">
       <div className="w-[50%] flex justify-center items-center">
         <Image style={{ height: 'auto', width: 'auto' }} width={50} height={50} src={img} alt="half" />
       </div>
+
       <div className="w-[50%] flex flex-col justify-between items-center">
-        <h5>{nome}</h5>
-        <h5 className="text-[12px]">
+        <h5 className="text-[20px] font-bold">
+          {nome} <span className="text-sm">{medida}</span>
+        </h5>
+
+        <h5 className="text-[16px]">
           R$ {preco} <b>em média</b>
         </h5>
 
-        <div className="flex space-x-2">
-          <div onClick={diminuirQtd} className="flex justify-center items-center rounded-full bg-[#FAA834] w-[20px] h-[20px]">
-            -
+        <div className="flex flex-col items-center">
+          <div className="flex space-x-2 mt-2">
+            <div onClick={diminuirQtd} className="flex justify-center items-center rounded-full bg-[#FAA834] w-[30px] h-[30px]">
+              <span className="text-xl">-</span>
+            </div>
+            <h1 className="text-xl">{qtd}</h1>
+            <div onClick={aumentarQtd} className="flex justify-center items-center rounded-full bg-[#FAA834] w-[30px] h-[30px]">
+              <span className="text-xl">+</span>
+            </div>
           </div>
-          <h1>{qtd}</h1>
-          <div onClick={aumentarQtd} className="flex justify-center items-center rounded-full bg-[#FAA834] w-[20px] h-[20px]">
-            +
+          <div className="mt-2 mb-2">
+            <Button
+              onClick={handleAddToCart}
+              width="140px"
+              height="40px"
+              title={'Adicionar'}>
+            </Button>
           </div>
-          <p>{medida}</p>
         </div>
-
-        <Button onClick={handleAddToCart} width="100px" height="20px" title={'Adicionar'}></Button>
       </div>
     </div>
   );
