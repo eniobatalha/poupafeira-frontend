@@ -107,7 +107,7 @@ export default function Page() {
                 )}
             </div>
 
-            <div className='flex flex-col items-center overflow-auto h-[50vh] mt-3 bg-white w-[85vw] rounded-md mb-3'>
+            <div className='flex flex-col items-center overflow-auto h-[50vh] mt-3 bg-white w-[88vw] rounded-md mb-3'>
                 {
                     listaProdutos.map(item => {
                         return (
