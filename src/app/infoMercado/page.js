@@ -111,7 +111,7 @@ export default function Page() {
                 {
                     listaProdutos.map(item => {
                         return (
-                            <div key={item.id} className="flex justify-between w-[88vw] items-center max-w-[300px] m-2" style={{ margin: '10px' }}>
+                            <div key={item.id} className="flex justify-between w-[88vw] items-center max-w-[300px] m-2" style={{ margin: '10px 10px 10px 5px' }}>
                                 <Checkbox
                                     checked={checkboxes[item.id] || false}
                                     onChange={() => handleCheckboxChange(item.id)}
